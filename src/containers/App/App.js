@@ -27,8 +27,7 @@ export class App extends Component {
         <h1>Deck Building</h1>
         <Route exact path='/' render={() => <CardContainer />} />
         <Route path='/card/:id' render={({ match }) => {
-          console.log(currentGames)
-          let targetCard = currentGames.find(card => card.id === parseInt(match.params.id));
+          let targetCard = currentGames.find(card => card.id === match.params.id);
           return <CardDetails {...targetCard} />
         }} />
       </main>

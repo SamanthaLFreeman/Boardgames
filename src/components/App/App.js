@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
+import { getGames } from '../../actions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getPopularGames } from '../../util/apiCalls';
 
-class App extends Component {
+export class App extends Component {
   componentDidMount() {
-    fetch('https://www.boardgameatlas.com/api/search?order_by=popularity&ascending=false&client_id=SB1VGnDv7M')
-      .then(response => response.json())
-      .then(data => console.log(data.games))
+    const { getGames } = this.props;
+    getPopularGames()
+      .then(data => getGames(data.games))
       .catch(error => console.log(error))
   }
   
   render() {
     return(
-      <div></div>
+      <div>
+        <h1>Deck Building</h1>
+      </div>
     )
   }
 
 }
 
-export default App;
+export const mapDispatchToProps = dispatch => (
+  bindActionCreators({ getGames }, dispatch)
+)
+
+export default connect(null, mapDispatchToProps)(App);

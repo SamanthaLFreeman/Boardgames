@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { getGames } from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getPopularGames } from '../../util/apiCalls';
+import { getPopularGames, getCategories } from '../../util/apiCalls';
 
 export class App extends Component {
   componentDidMount() {
     const { getGames } = this.props;
     getPopularGames()
       .then(data => getGames(data.games))
+      .catch(error => console.log(error))
+
+    getCategories()
+      .then(data => console.log(data))
       .catch(error => console.log(error))
   }
   

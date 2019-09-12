@@ -7,3 +7,13 @@ export const getPopularGames = () => {
       return response.json()
     })
 }
+
+export const getCategories = () => {
+  return fetch('https://www.boardgameatlas.com/api/game/categories?client_id=SB1VGnDv7M')
+    .then(response => {
+      if(!response.ok) {
+        throw Error('Error fetching categories')
+      }
+      return response.json()
+    })
+}

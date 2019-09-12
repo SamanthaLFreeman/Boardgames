@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPopularGames, getAllCategories } from '../../util/apiCalls';
 import CardContainer from '../CardContainer/CardContainer';
+import CardDetails from '../../components/CardDetails/CardDetails';
+import { Route } from 'react-router-dom';
+
 
 export class App extends Component {
   componentDidMount() {
@@ -18,18 +21,28 @@ export class App extends Component {
   }
   
   render() {
+    const { currentGames } = this.props
     return(
       <main>
         <h1>Deck Building</h1>
-        <CardContainer />
+        <Route exact path='/' render={() => <CardContainer />} />
+        <Route path='/card/:id' render={({ match }) => {
+          console.log(currentGames)
+          let targetCard = currentGames.find(card => card.id === parseInt(match.params.id));
+          return <CardDetails {...targetCard} />
+        }} />
       </main>
     )
   }
 
 }
 
+export const mapStateToProps = state => ({
+  currentGames: state.games
+})
+
 export const mapDispatchToProps = dispatch => (
   bindActionCreators({ getGames, getCategories }, dispatch)
 )
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

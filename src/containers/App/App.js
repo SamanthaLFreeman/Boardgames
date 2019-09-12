@@ -3,7 +3,7 @@ import { getGames, getCategories } from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPopularGames, getAllCategories } from '../../util/apiCalls';
-import CardContainer from '../../components/CardContainer/CardContainer';
+import CardContainer from '../CardContainer/CardContainer';
 
 export class App extends Component {
   componentDidMount() {

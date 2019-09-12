@@ -3,6 +3,7 @@ import { getGames, getCategories } from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPopularGames, getAllCategories } from '../../util/apiCalls';
+import CardContainer from '../../components/CardContainer/CardContainer';
 
 export class App extends Component {
   componentDidMount() {
@@ -18,9 +19,10 @@ export class App extends Component {
   
   render() {
     return(
-      <div>
+      <main>
         <h1>Deck Building</h1>
-      </div>
+        <CardContainer />
+      </main>
     )
   }
 

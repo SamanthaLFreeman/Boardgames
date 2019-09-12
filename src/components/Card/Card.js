@@ -1,8 +1,11 @@
 import React from 'react';
 
-export const Card = () => {
+export const Card = ({game}) => {
   return (
-    <article>card</article>
+    <article className="card">
+      <img className="card-img" src={game.image_url} alt={game.name} />
+      <h2>{game.name}</h2>
+    </article>
   )
 }
 

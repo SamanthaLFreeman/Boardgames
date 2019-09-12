@@ -6,7 +6,7 @@ import Card from '../../components/Card/Card'
 export const CardContainer = ({games}) => {
   const displayCards = games.map(game => <Card game={game} key={game.id}/>)
   return (
-    <section>
+    <section className="cards-container">
       {displayCards}
     </section>
   )

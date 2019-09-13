@@ -1,3 +1,4 @@
+
 export const getPopularGames = () => {
   return fetch('https://www.boardgameatlas.com/api/search?order_by=popularity&ascending=false&client_id=igbjxf77TF')
     .then(response => {

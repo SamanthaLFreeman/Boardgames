@@ -1,9 +1,8 @@
-
 export const getPopularGames = () => {
   return fetch('https://www.boardgameatlas.com/api/search?order_by=popularity&ascending=false&client_id=igbjxf77TF')
     .then(response => {
       if(!response.ok) {
-        throw Error('Error fetching popular books')
+        throw Error('Error fetching popular games')
       }
       return response.json()
     })
@@ -16,5 +15,15 @@ export const getAllCategories = () => {
         throw Error('Error fetching categories')
       }
       return response.json()
+    })
+}
+
+export const searchGames = (name) => {
+  return fetch(`https://www.boardgameatlas.com/api/search?name=${name}&client_id=igbjxf77TF`)
+    .then(response => {
+      if(!response.ok) {
+        throw Error('Error fetching games')
+      }
+      return response.json();
     })
 }

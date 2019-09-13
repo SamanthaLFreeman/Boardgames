@@ -6,6 +6,7 @@ import { getPopularGames, getAllCategories } from '../../util/apiCalls';
 import CardContainer from '../CardContainer/CardContainer';
 import CardDetails from '../../components/CardDetails/CardDetails';
 import Nav from '../../components/Nav/Nav';
+import SearchForm from '../SearchForm/SearchForm';
 import { Route } from 'react-router-dom';
 
 
@@ -46,6 +47,7 @@ export class App extends Component {
     return(
       <main>
         <Nav />
+        <SearchForm cleanUpGames={this.cleanUpGames} />
         <Route exact path='/' render={() => <CardContainer />} />
         <Route path='/card/:id' render={({ match }) => {
           let targetCard = currentGames.find(card => card.id === match.params.id);

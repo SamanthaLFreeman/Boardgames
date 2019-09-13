@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match the snapshot with the data passed through 1`] = `
+<Link
+  to="/card/42"
+>
+  <article
+    className="card"
+  >
+    <img
+      alt="Catan"
+      className="card-img"
+    />
+    <h2>
+      Catan
+    </h2>
+  </article>
+</Link>
+`;

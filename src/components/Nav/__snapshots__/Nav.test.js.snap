@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should match the snapshot with the data passed through 1`] = `
+<nav>
+  <h1>
+    Deck Building
+  </h1>
+  <button>
+    View Favorites
+  </button>
+  <button>
+    Owned Collection
+  </button>
+  <button>
+    Search
+  </button>
+</nav>
+`;

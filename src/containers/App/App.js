@@ -47,8 +47,8 @@ export class App extends Component {
     return(
       <main>
         <Nav />
+        <SearchForm cleanUpGames={this.cleanUpGames} />
         <Route exact path='/' render={() => <CardContainer />} />
-        <Route exact path='/search' render={() => <SearchForm />} />
         <Route path='/card/:id' render={({ match }) => {
           let targetCard = currentGames.find(card => card.id === match.params.id);
           return <CardDetails {...targetCard} />

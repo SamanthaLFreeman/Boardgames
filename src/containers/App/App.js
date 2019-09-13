@@ -12,13 +12,47 @@ export class App extends Component {
   componentDidMount() {
     const { getGames, getCategories } = this.props;
     getPopularGames()
-      .then(data => getGames(data.games))
+      .then(data => this.cleanUpGames(data.games))
+      .then(data => getGames(data))
       .catch(error => console.log(error))
 
     getAllCategories()
       .then(data => getCategories(data.categories))
       .catch(error => console.log(error))
   }
+
+  cleanUpGames = games => {
+    return games.map(game => {
+      return {
+        id: game.id,
+        name: game.name,
+        year_published: game.year_published,
+        min_players: game.min_players,
+        max_players: game.max_players,
+        min_playtime: game.min_playtime,
+        max_playtime: game.max_playtime,
+        description_preview: game.description_preview,
+        image_url: game.image_url,
+        primary_publisher: game.primary_publisher,
+        categoriesIds: game.categories,
+        rules_url: game.rules_url
+      }
+    })
+  }
+
+  // cleanUpCategories = games => {
+  //   return games.map(game => {
+  //     return this.props.categories.map(category => {
+  //       if(game.id === category.id) {
+  //         return {
+  //           ...game,
+  //           categories: [category, ...this.props.categories]
+  //         }
+  //       }
+  //     })
+  //   })
+  // }
+
   
   render() {
     const { currentGames } = this.props
@@ -37,7 +71,8 @@ export class App extends Component {
 }
 
 export const mapStateToProps = state => ({
-  currentGames: state.games
+  currentGames: state.games,
+  categories: state.categories
 })
 
 export const mapDispatchToProps = dispatch => (

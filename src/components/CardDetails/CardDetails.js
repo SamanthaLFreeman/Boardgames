@@ -1,8 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-
-export const CardDetails = ({ name, year_published, min_players, max_players, max_playtime, description_preview, image_url, primary_publisher, categories, rules_url}) => {
-  // const displayCategories = categories.map(category => <li>{category}</li>)
+export const CardDetails = ({ name, year_published, min_players, max_players, max_playtime, description_preview, image_url, primary_publisher, categoriesIds, rules_url, categoriesKey}) => {
+  const displayCategories = categoriesIds.map(category => category.id).reduce((acc, id) => {
+    categoriesKey.forEach(key => {
+      if(id === key.id) {
+        acc.push(key.name)
+      }
+    })
+    return acc;
+  }, []).map(categoryName => <li key={categoryName}>{categoryName}</li>)
   return (
     <section>
       <img src={image_url} alt={name} />
@@ -13,12 +20,17 @@ export const CardDetails = ({ name, year_published, min_players, max_players, ma
       <p>Max Playtime: {max_playtime}</p>
       <p>{description_preview}</p>
       <p>Primary Publisher: {primary_publisher}</p>
-      {/* <ul>
+      <p>Categories:</p>
+      <ul>
         {displayCategories}
-      </ul> */}
+      </ul>
       <p>Rules: {rules_url}</p>
     </section>
   )
 }
 
-export default CardDetails;
+export const mapStateToProps = state => ({
+  categoriesKey: state.categories
+})
+
+export default connect(mapStateToProps, null)(CardDetails);

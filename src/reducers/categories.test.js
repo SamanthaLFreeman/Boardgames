@@ -12,14 +12,14 @@ describe('categories reducer', () => {
   it('should return the new state with the retrieved categories when GET_CATEGORIES action is passed through', () => {
     const expected = [
       {
-        name: "Catan"
+        name: "Strategy"
       }
     ]
     const actionObj = {
       type: 'GET_CATEGORIES',
       categories: [
         {
-          name: "Catan"
+          name: "Strategy"
         }
       ]
     }

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { CardContainer } from './CardContainer';
 
 describe('CardContainer', () => {
-  let wrapper
+  let wrapper;
   const mockGames = [
     {
       name: 'Catan',
@@ -14,7 +14,7 @@ describe('CardContainer', () => {
   beforeEach(() => {
     wrapper = shallow(<CardContainer 
     games={mockGames}/>)
-  })
+  });
 
   it('should match the snapshot with the data passed through', () => {
     expect(wrapper).toMatchSnapshot();

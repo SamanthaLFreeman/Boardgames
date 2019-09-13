@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export const CardDetails = ({ name, year_published, min_players, max_players, max_playtime, description_preview, image_url, primary_publisher, categoriesIds, rules_url, categoriesKey}) => {
+export const CardDetails = ({ name, year_published, min_players, max_players, min_playtime, max_playtime, description_preview, image_url, primary_publisher, categoriesIds, rules_url, categoriesKey}) => {
   const displayCategories = categoriesIds.map(category => category.id).reduce((acc, id) => {
     categoriesKey.forEach(key => {
       if(id === key.id) {
@@ -17,6 +17,7 @@ export const CardDetails = ({ name, year_published, min_players, max_players, ma
       <p>Year Published: {year_published}</p>
       <p>Min Players: {min_players}</p>
       <p>Max Players: {max_players}</p>
+      <p>Min Playtime: {min_playtime}</p>
       <p>Max Playtime: {max_playtime}</p>
       <p>{description_preview}</p>
       <p>Primary Publisher: {primary_publisher}</p>

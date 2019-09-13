@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { getPopularGames, getAllCategories } from '../../util/apiCalls';
 import CardContainer from '../CardContainer/CardContainer';
 import CardDetails from '../../components/CardDetails/CardDetails';
+import Nav from '../../components/Nav/Nav';
 import { Route } from 'react-router-dom';
 
 
@@ -39,26 +40,12 @@ export class App extends Component {
       }
     })
   }
-
-  // cleanUpCategories = games => {
-  //   return games.map(game => {
-  //     return this.props.categories.map(category => {
-  //       if(game.id === category.id) {
-  //         return {
-  //           ...game,
-  //           categories: [category, ...this.props.categories]
-  //         }
-  //       }
-  //     })
-  //   })
-  // }
-
   
   render() {
     const { currentGames } = this.props
     return(
       <main>
-        <h1>Deck Building</h1>
+        <Nav />
         <Route exact path='/' render={() => <CardContainer />} />
         <Route path='/card/:id' render={({ match }) => {
           let targetCard = currentGames.find(card => card.id === match.params.id);

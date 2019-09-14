@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getGames } from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { searchGames, getPopularGames } from '../../util/apiCalls';
+import { searchGames, getPopularGames, randomGame } from '../../util/apiCalls';
 import { Link } from 'react-router-dom';
 
 export class SearchForm extends Component {
@@ -32,6 +32,15 @@ export class SearchForm extends Component {
     const { getGames, cleanUpGames } = this.props;
     getPopularGames()
       .then(data => cleanUpGames(data.games))
+      .then(data => getGames(data))
+      .catch(error => console.log(error))
+  }
+
+  handleRandomSubmit = (e) => {
+    e.preventDefault();
+    const { getGames, cleanUpGames } = this.props;
+    randomGame()
+      .then(data => cleanUpGames([data.game]))
       .then(data => getGames(data))
       .catch(error => console.log(error))
   }

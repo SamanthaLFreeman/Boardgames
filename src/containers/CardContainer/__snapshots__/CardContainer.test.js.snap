@@ -1,3 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardContainer should match the snapshot with the data passed through 1`] = `undefined`;
+exports[`CardContainer should match the snapshot with the data passed through with type favorites 1`] = `
+<section
+  className="cards-container"
+>
+  <Connect(Card)
+    game={
+      Object {
+        "id": 41,
+        "name": "Takenoko",
+      }
+    }
+    key="41"
+    toggleFavorite={[MockFunction]}
+    toggleOwned={[MockFunction]}
+  />
+</section>
+`;
+
+exports[`CardContainer should match the snapshot with the data passed through with type games 1`] = `
+<section
+  className="cards-container"
+>
+  <Connect(Card)
+    game={
+      Object {
+        "id": 42,
+        "name": "Catan",
+      }
+    }
+    key="42"
+    toggleFavorite={[MockFunction]}
+    toggleOwned={[MockFunction]}
+  />
+</section>
+`;
+
+exports[`CardContainer should match the snapshot with the data passed through with type ownedGames 1`] = `
+<section
+  className="cards-container"
+>
+  <Connect(Card)
+    game={
+      Object {
+        "id": 43,
+        "name": "Dead of Winter",
+      }
+    }
+    key="43"
+    toggleFavorite={[MockFunction]}
+    toggleOwned={[MockFunction]}
+  />
+</section>
+`;

@@ -27,5 +27,5 @@ describe('categories reducer', () => {
     const result = categories(undefined, actionObj);
 
     expect(result).toEqual(expected);
-  })
+  });
 })

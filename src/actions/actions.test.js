@@ -23,5 +23,97 @@ describe('actions', () => {
     const result = actions.getCategories(mockCategories);
 
     expect(result).toEqual(expectedAction);
-  })
+  });
+
+  it('should have a type of ADD_FAVORITE', () => {
+    const mockFavorite = {
+      name: 'Dead of Winter',
+      id: 43
+    };
+    const expectedAction = {
+      type: 'ADD_FAVORITE',
+      favorite: {
+        name: 'Dead of Winter',
+        id: 43
+      }
+    }
+
+    const result = actions.addFavorite(mockFavorite);
+
+    expect(result).toEqual(expectedAction);
+  });
+
+  it('should have a type of REMOVE_FAVORITE', () => {
+    const mockFavorite = {
+      name: 'Dead of Winter',
+      id: 43
+    };
+    const expectedAction = {
+      type: 'REMOVE_FAVORITE',
+      favorite: {
+        name: 'Dead of Winter',
+        id: 43
+      }
+    }
+
+    const result = actions.removeFavorite(mockFavorite);
+
+    expect(result).toEqual(expectedAction);
+  });
+
+  it('should have a type of ADD_OWNED', () => {
+    const mockGame = {
+      name: 'Dead of Winter',
+      id: 43
+    };
+    const expectedAction = {
+      type: 'ADD_OWNED',
+      game: {
+        name: 'Dead of Winter',
+        id: 43
+      }
+    }
+
+    const result = actions.addOwned(mockGame);
+
+    expect(result).toEqual(expectedAction);
+  });
+
+  it('should have a type of REMOVE_OWNED', () => {
+    const mockGame = {
+      name: 'Dead of Winter',
+      id: 43
+    };
+    const expectedAction = {
+      type: 'REMOVE_OWNED',
+      game: {
+        name: 'Dead of Winter',
+        id: 43
+      }
+    }
+
+    const result = actions.removeOwned(mockGame);
+
+    expect(result).toEqual(expectedAction);
+  });
+
+  it('should have a type of UPDATE_GAME', () => {
+    const mockUpdatedGame = {
+      name: 'Dead of Winter',
+      id: 43,
+      house_rules: '7 cards to start'
+    };
+    const expectedAction = {
+      type: 'UPDATE_GAME',
+      updatedGame: {
+        name: 'Dead of Winter',
+        id: 43,
+        house_rules: '7 cards to start'
+      }
+    }
+
+    const result = actions.updateGame(mockUpdatedGame);
+
+    expect(result).toEqual(expectedAction);
+  });
 })

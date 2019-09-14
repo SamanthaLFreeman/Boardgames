@@ -8,10 +8,28 @@ describe('Card', () => {
     name: "Catan",
     id: 42
   }
+  const toggleFavoriteMock = jest.fn();
+  const toggleOwnedMock = jest.fn();
+  const ownedGamesMock = [
+    {
+      name: 'Takenoko',
+      id: 41
+    }
+  ]
+  const favoritesMock = [
+    {
+      name: 'Dead of Winter',
+      id: 43
+    }
+  ]
 
   beforeEach(() => {
     wrapper = shallow(<Card
-      game={mockGame} />)
+      game={mockGame}
+      toggleFavorite={toggleFavoriteMock}
+      toggleOwned={toggleOwnedMock}
+      ownedGames={ownedGamesMock}
+      favorites={favoritesMock} />)
   });
 
   it('should match the snapshot with the data passed through', () => {

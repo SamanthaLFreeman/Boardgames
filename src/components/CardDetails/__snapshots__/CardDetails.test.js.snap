@@ -19,10 +19,6 @@ exports[`CardDetails should match the snapshot with the data passed through 1`] 
   <p>
     Max Playtime: 
   </p>
-  <p />
-  <p>
-    Primary Publisher: 
-  </p>
   <p>
     Categories:
   </p>
@@ -33,8 +29,5 @@ exports[`CardDetails should match the snapshot with the data passed through 1`] 
       Fantasy
     </li>
   </ul>
-  <p>
-    Rules: 
-  </p>
 </section>
 `;

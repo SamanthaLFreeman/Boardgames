@@ -12,6 +12,16 @@ exports[`App should match the snapshot with the data passed through 1`] = `
     render={[Function]}
   />
   <Route
+    exact={true}
+    path="/favorites"
+    render={[Function]}
+  />
+  <Route
+    exact={true}
+    path="/owned"
+    render={[Function]}
+  />
+  <Route
     path="/card/:id"
     render={[Function]}
   />

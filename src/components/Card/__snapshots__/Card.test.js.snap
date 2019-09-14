@@ -1,19 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Card should match the snapshot with the data passed through 1`] = `
-<Link
-  to="/card/42"
+<article
+  className="card"
 >
-  <article
-    className="card"
+  <button
+    className="btn-fav"
+    onClick={[Function]}
   >
-    <img
-      alt="Catan"
-      className="card-img"
-    />
-    <h2>
-      Catan
-    </h2>
-  </article>
-</Link>
+    Fav
+  </button>
+  <button
+    className="btn-own"
+    onClick={[Function]}
+  >
+    Own
+  </button>
+  <img
+    alt="Catan"
+    className="card-img"
+  />
+  <h2>
+    Catan
+  </h2>
+  <Link
+    to="/card/42"
+  >
+    <button>
+      Details
+    </button>
+  </Link>
+</article>
 `;

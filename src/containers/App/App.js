@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getGames, getCategories } from '../../actions';
+import { getGames, getCategories, addFavorite } from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPopularGames, getAllCategories } from '../../util/apiCalls';
@@ -21,6 +21,11 @@ export class App extends Component {
     getAllCategories()
       .then(data => getCategories(data.categories))
       .catch(error => console.log(error))
+  }
+
+  toggleFavorite = (id) => {
+    const { addFavorite } = this.props;
+    addFavorite(id)
   }
 
   cleanUpGames = games => {
@@ -48,7 +53,7 @@ export class App extends Component {
       <main>
         <Nav />
         <SearchForm cleanUpGames={this.cleanUpGames} />
-        <Route exact path='/' render={() => <CardContainer />} />
+        <Route exact path='/' render={() => <CardContainer toggleFavorite={this.toggleFavorite}/>} />
         <Route path='/card/:id' render={({ match }) => {
           let targetCard = currentGames.find(card => card.id === match.params.id);
           return <CardDetails {...targetCard} />
@@ -65,7 +70,7 @@ export const mapStateToProps = state => ({
 })
 
 export const mapDispatchToProps = dispatch => (
-  bindActionCreators({ getGames, getCategories }, dispatch)
+  bindActionCreators({ getGames, getCategories, addFavorite }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

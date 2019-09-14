@@ -11,8 +11,12 @@ exports[`Nav should match the snapshot with the data passed through 1`] = `
   <button>
     Owned Collection
   </button>
-  <button>
-    Search
-  </button>
+  <Link
+    to="/search"
+  >
+    <button>
+      Search
+    </button>
+  </Link>
 </nav>
 `;

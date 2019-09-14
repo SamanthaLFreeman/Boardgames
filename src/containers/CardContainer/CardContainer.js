@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Card from '../../components/Card/Card'
 
-export const CardContainer = ({games}) => {
-  const displayCards = games.map(game => <Card game={game} key={game.id}/>)
+export const CardContainer = ({games, toggleFavorite}) => {
+  const displayCards = games.map(game => <Card game={game} key={game.id} toggleFavorite={toggleFavorite} />)
   return (
     <section className="cards-container">
       {displayCards}

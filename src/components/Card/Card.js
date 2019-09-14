@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 export const Card = ({game, toggleFavorite, toggleOwned, ownedGames, favorites}) => {
   const isFavorite = favorites.map(favorite => favorite.id).includes(game.id);
-  const isOwned = ownedGames.map(ownedGame => ownedGame.id).includes(game.id)
+  const isOwned = ownedGames.map(ownedGame => ownedGame.id).includes(game.id);
   const btnFavClass = isFavorite ? "btn-fav-active" : "btn-fav";
   const btnOwnClass = isOwned ? "btn-own-active" : "btn-own";
   return (

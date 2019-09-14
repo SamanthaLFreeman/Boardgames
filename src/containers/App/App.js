@@ -67,12 +67,17 @@ export class App extends Component {
         <Nav />
         <SearchForm cleanUpGames={this.cleanUpGames} />
         <Route exact path='/' render={() => <CardContainer 
-          toggleFavorite={this.toggleFavorite} 
-          toggleOwned={this.toggleOwned} />} />
+          toggleFavorite={this.toggleFavorite}
+          toggleOwned={this.toggleOwned}
+          type={'games'} />} />
         <Route exact path='/favorites' render={() => <CardContainer 
           toggleFavorite={this.toggleFavorite}
           toggleOwned={this.toggleOwned}
-          favoriteCheck={true} />} />
+          type={'favorites'} />} />
+        <Route exact path='/owned' render={() => <CardContainer
+          toggleFavorite={this.toggleFavorite}
+          toggleOwned={this.toggleOwned}
+          type={'ownedGames'} />} />
         <Route path='/card/:id' render={({ match }) => {
           let targetCard = currentGames.find(card => card.id === match.params.id);
           return <CardDetails {...targetCard} />

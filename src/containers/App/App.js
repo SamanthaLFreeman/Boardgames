@@ -58,6 +58,7 @@ export class App extends Component {
         <Nav />
         <SearchForm cleanUpGames={this.cleanUpGames} />
         <Route exact path='/' render={() => <CardContainer toggleFavorite={this.toggleFavorite}/>} />
+        <Route exact path='/favorites' render={() => <CardContainer toggleFavorite={this.toggleFavorite} favoriteCheck={true} />} />
         <Route path='/card/:id' render={({ match }) => {
           let targetCard = currentGames.find(card => card.id === match.params.id);
           return <CardDetails {...targetCard} />

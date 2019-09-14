@@ -38,9 +38,10 @@ export class SearchForm extends Component {
 
   handleRandomSubmit = (e) => {
     e.preventDefault();
-    const { getGames } = this.props;
+    const { getGames, cleanUpGames } = this.props;
     randomGame()
-      .then(data => getGames([data.game]))
+      .then(data => cleanUpGames([data.game]))
+      .then(data => getGames(data))
       .catch(error => console.log(error))
   }
   

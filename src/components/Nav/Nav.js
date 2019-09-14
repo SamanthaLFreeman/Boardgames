@@ -5,7 +5,7 @@ export const Nav = () => {
   return (
     <nav>
       <h1>Deck Building</h1>
-      <button>View Favorites</button>
+      <Link to='/favorites'><button>View Favorites</button></Link>
       <button>Owned Collection</button>
       <Link to='/search'><button>Search</button></Link>
     </nav>

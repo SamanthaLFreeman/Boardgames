@@ -60,4 +60,40 @@ describe('actions', () => {
 
     expect(result).toEqual(expectedAction);
   });
+
+  it('should have a type of ADD_OWNED', () => {
+    const mockGame = {
+      name: 'Dead of Winter',
+      id: 43
+    };
+    const expectedAction = {
+      type: 'ADD_OWNED',
+      game: {
+        name: 'Dead of Winter',
+        id: 43
+      }
+    }
+
+    const result = actions.addOwned(mockGame);
+
+    expect(result).toEqual(expectedAction);
+  });
+
+  it('should have a type of REMOVE_OWNED', () => {
+    const mockGame = {
+      name: 'Dead of Winter',
+      id: 43
+    };
+    const expectedAction = {
+      type: 'REMOVE_OWNED',
+      game: {
+        name: 'Dead of Winter',
+        id: 43
+      }
+    }
+
+    const result = actions.removeOwned(mockGame);
+
+    expect(result).toEqual(expectedAction);
+  });
 })

@@ -61,7 +61,10 @@ describe('ownedGames reducer', () => {
       }
     }
 
-    const result = ownedGames(undefined, actionObj);
+    const result = ownedGames([{
+      name: 'Dead of Winter',
+      id: 43
+    }], actionObj);
 
     expect(result).toEqual(expected);
   });

@@ -23,5 +23,41 @@ describe('actions', () => {
     const result = actions.getCategories(mockCategories);
 
     expect(result).toEqual(expectedAction);
-  })
+  });
+
+  it('should have a type of ADD_FAVORITE', () => {
+    const mockFavorite = {
+      name: 'Dead of Winter',
+      id: 43
+    };
+    const expectedAction = {
+      type: 'ADD_FAVORITE',
+      favorite: {
+        name: 'Dead of Winter',
+        id: 43
+      }
+    }
+
+    const result = actions.addFavorite(mockFavorite);
+
+    expect(result).toEqual(expectedAction);
+  });
+
+  it('should have a type of REMOVE_FAVORITE', () => {
+    const mockFavorite = {
+      name: 'Dead of Winter',
+      id: 43
+    };
+    const expectedAction = {
+      type: 'REMOVE_FAVORITE',
+      favorite: {
+        name: 'Dead of Winter',
+        id: 43
+      }
+    }
+
+    const result = actions.removeFavorite(mockFavorite);
+
+    expect(result).toEqual(expectedAction);
+  });
 })

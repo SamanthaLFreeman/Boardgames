@@ -3,7 +3,6 @@ import { getGames } from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { searchGames, getPopularGames, randomGame } from '../../util/apiCalls';
-import { Link } from 'react-router-dom';
 
 export class SearchForm extends Component {
   constructor() {
@@ -25,6 +24,7 @@ export class SearchForm extends Component {
       .then(data => cleanUpGames(data.games))
       .then(data => getGames(data))
       .catch(error => console.log(error))
+    this.setState({name: ""})
   }
 
   handlePopularSubmit = (e) => {

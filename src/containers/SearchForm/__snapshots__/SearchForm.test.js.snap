@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchForm should match the snapshot with all of the data passed through it 1`] = `
+<form>
+  <input
+    name="name"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <button
+    onClick={[Function]}
+  >
+    Submit
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Show Popular Games
+  </button>
+  <button
+    onClick={[Function]}
+  >
+    Show Random Game
+  </button>
+</form>
+`;

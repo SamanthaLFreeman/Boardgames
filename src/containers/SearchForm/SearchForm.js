@@ -24,6 +24,7 @@ export class SearchForm extends Component {
       .then(data => cleanUpGames(data.games))
       .then(data => getGames(data))
       .catch(error => console.log(error))
+    this.setState({name: ""})
   }
 
   handlePopularSubmit = (e) => {

@@ -1,4 +1,4 @@
-import { getPopularGames } from './apiCalls';
+import { getPopularGames, getAllCategories } from './apiCalls';
 
 describe('getPopularGame', () => {
   let mockGames;
@@ -53,5 +53,52 @@ describe('getPopularGame', () => {
     })
 
     expect(getPopularGames()).rejects.toEqual(Error('fetch failed'))
+  });
+
+})
+
+describe('getAllCategories', () => {
+  let mockCategories;
+
+  beforeEach(() => {
+    mockCategories = [{
+      id: "hBqZ3Ar4RJ",
+      name: "Abstract"
+    }]
+
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockCategories)
+      })
+    })
+  });
+
+  it('should call fetch with the correct url', () => {
+    getAllCategories();
+
+    expect(window.fetch).toHaveBeenCalledWith('https://www.boardgameatlas.com/api/game/categories?client_id=igbjxf77TF')
+  });
+
+  it('should return the array of popular games', () => {
+    expect(getAllCategories()).resolves.toEqual(mockCategories);
+  });
+
+  it('should return an error if the promise resolves but the property ok isn\'t true', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: false
+      })
+    })
+
+    expect(getAllCategories()).rejects.toEqual(Error('Error fetching categories'))
+  });
+
+  it('should return an error if the promise rejects', () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject(Error('fetch failed'))
+    })
+
+    expect(getAllCategories()).rejects.toEqual(Error('fetch failed'))
   });
 });

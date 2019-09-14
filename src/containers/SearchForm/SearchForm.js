@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { getGames } from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { searchGames } from '../../util/apiCalls';
+import { searchGames, getPopularGames } from '../../util/apiCalls';
 import { Link } from 'react-router-dom';
 
 export class SearchForm extends Component {
@@ -17,7 +17,7 @@ export class SearchForm extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  handleSubmit = (e) => {
+  handleInputSubmit = (e) => {
     e.preventDefault();
     const { name } = this.state;
     const { getGames, cleanUpGames } = this.props;
@@ -27,6 +27,16 @@ export class SearchForm extends Component {
       .catch(error => console.log(error))
   }
 
+  handlePopularSubmit = (e) => {
+    e.preventDefault();
+    const { getGames, cleanUpGames } = this.props;
+    getPopularGames()
+      .then(data => cleanUpGames(data.games))
+      .then(data => getGames(data))
+      .catch(error => console.log(error))
+  }
+  
+
   render() {
     return (
       <form>
@@ -35,7 +45,9 @@ export class SearchForm extends Component {
           name="name"
           value={this.state.name}
           onChange={this.handleChange} />
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button onClick={this.handleInputSubmit}>Submit</button>
+        <button onClick={this.handlePopularSubmit}>Show Popular Games</button>
+        <button onClick={this.handleRandomSubmit}>Show Random Game</button>
       </form>
     )
   }

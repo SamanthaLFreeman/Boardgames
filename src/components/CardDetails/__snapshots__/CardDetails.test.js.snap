@@ -1,3 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CardDetails should match the snapshot with the data passed through 1`] = `undefined`;
+exports[`CardDetails should match the snapshot with the data passed through 1`] = `
+<section>
+  <img />
+  <h3 />
+  <p>
+    Year Published: 
+  </p>
+  <p>
+    Min Players: 
+  </p>
+  <p>
+    Max Players: 
+  </p>
+  <p>
+    Min Playtime: 
+  </p>
+  <p>
+    Max Playtime: 
+  </p>
+  <p>
+    Categories:
+  </p>
+  <ul>
+    <li
+      key="Fantasy"
+    >
+      Fantasy
+    </li>
+  </ul>
+</section>
+`;

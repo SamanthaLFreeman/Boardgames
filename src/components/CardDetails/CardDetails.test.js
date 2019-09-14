@@ -16,12 +16,21 @@ describe('CardDetails', () => {
       name: "Fantasy"
     }
   ]
+  const ownedGamesMock = [
+    {
+      name: 'Takenoko',
+      id: 41
+    }
+  ]
+  const updateGameMock = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(<CardDetails 
     card={mockCard}
     categoriesIds={categoriesIdsMock}
-    categoriesKey={categoriesKeyMock} />)
+    categoriesKey={categoriesKeyMock}
+    ownedGames={ownedGamesMock}
+    updateGame={updateGameMock} />)
   });
 
   it('should match the snapshot with the data passed through', () => {

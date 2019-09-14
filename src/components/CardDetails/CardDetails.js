@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { updateGame } from '../../actions';
+import { Link } from 'react-router-dom';
 
 export class CardDetails extends Component {
   constructor() {
@@ -42,10 +43,11 @@ export class CardDetails extends Component {
       {checkOwned && <form>
         <input
           type="text"
+          placeholder="Add house rules"
           name="house_rules"
           value={this.state.house_rules}
           onChange={this.handleChange}/>
-        <button onClick={this.handleSubmit}>Add Changes</button>
+        <Link to={`/card/${id}`} ><button onClick={this.handleSubmit}>Add Changes</button></Link>
       </form>}
       <img src={image_url} alt={name} />
       <h3>{name}</h3>

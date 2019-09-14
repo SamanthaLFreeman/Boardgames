@@ -62,7 +62,7 @@ export class App extends Component {
   }
   
   render() {
-    const { currentGames } = this.props
+    const { currentGames, ownedGames } = this.props
     return(
       <main>
         <Nav />
@@ -80,7 +80,10 @@ export class App extends Component {
           toggleOwned={this.toggleOwned}
           type={'ownedGames'} />} />
         <Route path='/card/:id' render={({ match }) => {
-          let targetCard = currentGames.find(card => card.id === match.params.id);
+          let targetCard = ownedGames.find(card => card.id === match.params.id);
+          if(!targetCard) {
+            targetCard = currentGames.find(card => card.id === match.params.id);
+          }
           return <CardDetails {...targetCard} />
         }} />
       </main>
@@ -91,7 +94,8 @@ export class App extends Component {
 
 export const mapStateToProps = state => ({
   currentGames: state.games,
-  categories: state.categories
+  categories: state.categories,
+  ownedGames: state.ownedGames
 })
 
 export const mapDispatchToProps = dispatch => (

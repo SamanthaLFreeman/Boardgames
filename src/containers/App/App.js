@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getGames, getCategories, addFavorite } from '../../actions';
+import { getGames, getCategories, addFavorite, removeFavorite } from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPopularGames, getAllCategories } from '../../util/apiCalls';
@@ -23,9 +23,13 @@ export class App extends Component {
       .catch(error => console.log(error))
   }
 
-  toggleFavorite = (id) => {
-    const { addFavorite } = this.props;
-    addFavorite(id)
+  toggleFavorite = (id, bool) => {
+    const { addFavorite, removeFavorite } = this.props;
+    if(!bool) {
+      addFavorite(id)
+    } else {
+      removeFavorite(id)
+    }
   }
 
   cleanUpGames = games => {
@@ -70,7 +74,7 @@ export const mapStateToProps = state => ({
 })
 
 export const mapDispatchToProps = dispatch => (
-  bindActionCreators({ getGames, getCategories, addFavorite }, dispatch)
+  bindActionCreators({ getGames, getCategories, addFavorite, removeFavorite }, dispatch)
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

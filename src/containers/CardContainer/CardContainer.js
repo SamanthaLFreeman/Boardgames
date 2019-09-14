@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Card from '../../components/Card/Card'
 
-export const CardContainer = ({games, toggleFavorite, favoriteCheck, favorites}) => {
-  const allCards = games.map(game => <Card game={game} key={game.id} toggleFavorite={toggleFavorite} />);
-  const favoriteCards = favorites.map(game => <Card game={game} key={game.id} toggleFavorite={toggleFavorite} />);
+export const CardContainer = ({games, toggleFavorite, toggleOwned, favoriteCheck, favorites}) => {
+  const allCards = games.map(game => <Card game={game} key={game.id} toggleFavorite={toggleFavorite} toggleOwned={toggleOwned} />);
+  const favoriteCards = favorites.map(game => <Card game={game} key={game.id} toggleFavorite={toggleFavorite} toggleOwned={toggleOwned} />);
   const displayCards = !favoriteCheck ? allCards : favoriteCards;
   return (
     <section className="cards-container">

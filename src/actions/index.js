@@ -17,3 +17,8 @@ export const removeFavorite = favorite => ({
   type: 'REMOVE_FAVORITE',
   favorite
 })
+
+export const addOwned = game => ({
+  type: 'ADD_OWNED',
+  game
+})

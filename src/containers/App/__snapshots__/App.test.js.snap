@@ -3,6 +3,9 @@
 exports[`App should match the snapshot with the data passed through 1`] = `
 <main>
   <Nav />
+  <Connect(SearchForm)
+    cleanUpGames={[Function]}
+  />
   <Route
     exact={true}
     path="/"

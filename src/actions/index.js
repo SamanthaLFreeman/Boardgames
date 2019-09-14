@@ -8,12 +8,12 @@ export const getCategories = categories => ({
   categories
 })
 
-export const addFavorite = id => ({
+export const addFavorite = favorite => ({
   type: 'ADD_FAVORITE',
-  id
+  favorite
 })
 
-export const removeFavorite = id => ({
+export const removeFavorite = favorite => ({
   type: 'REMOVE_FAVORITE',
-  id
+  favorite
 })

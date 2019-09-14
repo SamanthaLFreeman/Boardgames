@@ -23,12 +23,12 @@ export class App extends Component {
       .catch(error => console.log(error))
   }
 
-  toggleFavorite = (id, bool) => {
+  toggleFavorite = (favorite, bool) => {
     const { addFavorite, removeFavorite } = this.props;
     if(!bool) {
-      addFavorite(id)
+      addFavorite(favorite)
     } else {
-      removeFavorite(id)
+      removeFavorite(favorite)
     }
   }
 

@@ -6,7 +6,7 @@ export const Nav = () => {
     <nav>
       <h1>Deck Building</h1>
       <Link to='/favorites'><button>View Favorites</button></Link>
-      <button>Owned Collection</button>
+      <Link to='/owned'><button>Owned Collection</button></Link>
       <Link to='/search'><button>Search</button></Link>
     </nav>
   )

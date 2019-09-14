@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-export const CardDetails = ({ name, year_published, min_players, max_players, min_playtime, max_playtime, description_preview, image_url, primary_publisher, categoriesIds, rules_url, categoriesKey}) => {
+export class CardDetails extends Component {
+  constructor() {
+    super();
+    this.state = {
+      house_rules: ""
+    }
+  }
+
+  handleChange = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  render() {
+  const { name, year_published, min_players, max_players, min_playtime, max_playtime, description_preview, image_url, primary_publisher, categoriesIds, rules_url, categoriesKey, house_rules } = this.props;
   const displayCategories = categoriesIds.map(category => category.id).reduce((acc, id) => {
     categoriesKey.forEach(key => {
       if(id === key.id) {
@@ -12,6 +25,14 @@ export const CardDetails = ({ name, year_published, min_players, max_players, mi
   }, []).map(categoryName => <li key={categoryName}>{categoryName}</li>)
   return (
     <section>
+      <form>
+        <input
+          type="text"
+          name="house_rules"
+          value={this.state.house_rules}
+          onChange={this.handleChange}/>
+        <button>Add Changes</button>
+      </form>
       <img src={image_url} alt={name} />
       <h3>{name}</h3>
       <p>Year Published: {year_published}</p>
@@ -26,8 +47,10 @@ export const CardDetails = ({ name, year_published, min_players, max_players, mi
         {displayCategories}
       </ul>
       <p>Rules: {rules_url}</p>
+      <p>House Rules: {house_rules} </p>
     </section>
   )
+  }
 }
 
 export const mapStateToProps = state => ({

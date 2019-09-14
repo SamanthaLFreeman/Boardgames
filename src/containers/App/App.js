@@ -55,7 +55,8 @@ export class App extends Component {
         image_url: game.image_url,
         primary_publisher: game.primary_publisher,
         categoriesIds: game.categories,
-        rules_url: game.rules_url
+        rules_url: game.rules_url,
+        house_rules: null
       }
     })
   }

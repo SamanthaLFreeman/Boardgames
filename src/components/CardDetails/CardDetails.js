@@ -23,6 +23,7 @@ export class CardDetails extends Component {
     })
     return acc;
   }, []).map(categoryName => <li key={categoryName}>{categoryName}</li>)
+  const categoriesCheck = !!categoriesIds.length;
   return (
     <section>
       <form>
@@ -40,14 +41,14 @@ export class CardDetails extends Component {
       <p>Max Players: {max_players}</p>
       <p>Min Playtime: {min_playtime}</p>
       <p>Max Playtime: {max_playtime}</p>
-      <p>{description_preview}</p>
-      <p>Primary Publisher: {primary_publisher}</p>
-      <p>Categories:</p>
+      {description_preview && <p>{description_preview}</p>}
+      { primary_publisher && <p>Primary Publisher: {primary_publisher}</p>}
+      { categoriesCheck &&<p>Categories:</p>}
       <ul>
         {displayCategories}
       </ul>
-      <p>Rules: {rules_url}</p>
-      <p>House Rules: {house_rules} </p>
+      { rules_url && <p>Rules: {rules_url}</p> }
+      { house_rules && <p>House Rules: {house_rules} </p> }
     </section>
   )
   }

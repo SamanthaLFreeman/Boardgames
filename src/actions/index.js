@@ -22,3 +22,8 @@ export const addOwned = game => ({
   type: 'ADD_OWNED',
   game
 })
+
+export const removeOwned = game => ({
+  type: 'REMOVE_OWNED',
+  game
+})

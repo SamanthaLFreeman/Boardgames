@@ -27,3 +27,13 @@ export const searchGames = (name) => {
       return response.json();
     })
 }
+
+export const randomGame = () => {
+  return fetch('https://www.boardgameatlas.com/api/search?random=true&client_id=igbjxf77TF')
+    .then(response => {
+      if(!response.ok) {
+        throw Error('Error fetching game')
+      }
+      return response.json();
+    })
+}

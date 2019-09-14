@@ -96,4 +96,24 @@ describe('actions', () => {
 
     expect(result).toEqual(expectedAction);
   });
+
+  it('should have a type of UPDATE_GAME', () => {
+    const mockUpdatedGame = {
+      name: 'Dead of Winter',
+      id: 43,
+      house_rules: '7 cards to start'
+    };
+    const expectedAction = {
+      type: 'UPDATE_GAME',
+      updatedGame: {
+        name: 'Dead of Winter',
+        id: 43,
+        house_rules: '7 cards to start'
+      }
+    }
+
+    const result = actions.updateGame(mockUpdatedGame);
+
+    expect(result).toEqual(expectedAction);
+  });
 })

@@ -50,16 +50,16 @@ export class CardDetails extends Component {
           onChange={this.handleChange}/>
         <Link to={`/card/${id}`} ><button onClick={this.handleSubmit}>Add Changes</button></Link>
       </form>}
-      <img 
+      { image_url && <img 
       className="details-img"
       src={image_url} 
-      alt={name} />
-      <h3 className="card-descrip card-detail-name">{name}</h3>
-      <p className="card-descrip">Year Published: <span className="card-info">{year_published}</span></p>
-      <p className="card-descrip">Min Players: <span className="card-info">{min_players}</span></p>
-      <p className="card-descrip">Max Players: <span className="card-info">{max_players}</span></p>
-      <p className="card-descrip">Min Playtime: <span className="card-info">{min_playtime}</span></p>
-      <p className="card-descrip">Max Playtime: <span className="card-info">{max_playtime}</span></p>
+      alt={name} /> }
+      {name && <h3 className="card-descrip card-detail-name">{name}</h3>}
+      { year_published && <p className="card-descrip">Year Published: <span className="card-info">{year_published}</span></p> }
+      { min_players && <p className="card-descrip">Min Players: <span className="card-info">{min_players}</span></p> }
+      { max_players && <p className="card-descrip">Max Players: <span className="card-info">{max_players}</span></p> }
+      { min_playtime && <p className="card-descrip">Min Playtime: <span className="card-info">{min_playtime}</span></p> }
+      { max_playtime && <p className="card-descrip">Max Playtime: <span className="card-info">{max_playtime}</span></p> }
       {description_preview && <p className="card-descrip"><span className="card-info">{description_preview}</span></p> }
       {primary_publisher && <p className="card-descrip">Primary Publisher: <span className="card-info">{primary_publisher}</span></p>}
       { categoriesCheck &&<p className="card-descrip">Categories:</p>}

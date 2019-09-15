@@ -49,15 +49,23 @@ export class SearchForm extends Component {
 
   render() {
     return (
-      <form>
+      <form className="search-form">
         <input 
+          className="search search-input"
           type="text" 
+          placeholder="Search by name"
           name="name"
           value={this.state.name}
           onChange={this.handleChange} />
-        <button onClick={this.handleInputSubmit}><Link to='/'>Submit</Link></button>
-        <button onClick={this.handlePopularSubmit}><Link to='/'>Show Popular Games</Link></button>
-        <button onClick={this.handleRandomSubmit}><Link to='/'>Show Random Game</Link></button>
+        <Link to='/'><button 
+          className="search"
+          onClick={this.handleInputSubmit}>Submit Search</button></Link>
+        <Link to='/'><button 
+          className="search"
+          onClick={this.handlePopularSubmit}>Show Popular Games</button></Link>
+        <Link to='/'><button 
+          className="search"
+          onClick={this.handleRandomSubmit}>Show Random Game</button></Link>
       </form>
     )
   }

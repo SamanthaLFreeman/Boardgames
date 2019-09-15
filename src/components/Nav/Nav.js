@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 
 export const Nav = () => {
   return (
-    <nav>
+    <nav className="nav">
       <h1>Deck Building</h1>
-      <Link to='/favorites'><button>View Favorites</button></Link>
-      <Link to='/owned'><button>Owned Collection</button></Link>
-      <Link to='/searchform'><button>Search</button></Link>
+      <div className="nav-btns">
+        <Link to='/favorites'><button className="nav-btn">View Favorites</button></Link>
+        <Link to='/owned'><button className="nav-btn">Owned Collection</button></Link>
+        <Link to='/searchform'><button className="nav-btn">Search</button></Link>
+      </div>
     </nav>
   )
 }

@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+h1 {
+  color: #fff;
+  font-family: $font-bold;
+  font-size: 2em;
+}
+
+.nav-btn {
+  font-family: $font-bold;
+  font-size: 0.7em;
+  margin: 0 10px;
+  padding: 8px;
+  width: 200px;
+}

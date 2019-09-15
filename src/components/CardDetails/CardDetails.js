@@ -35,12 +35,12 @@ export class CardDetails extends Component {
       }
     })
     return acc;
-  }, []).map(categoryName => <li key={categoryName}>{categoryName}</li>);
+  }, []).map(categoryName => <li key={categoryName} className="card-info">{categoryName}</li>);
   const checkOwned = ownedGames.map(game => game.id).includes(id)
   const categoriesCheck = !!categoriesIds.length;
   return (
-    <section>
-      {checkOwned && <form>
+    <section className="card-details">
+      {checkOwned && <form className="edit-card">
         <input
           type="text"
           placeholder="Add house rules"
@@ -49,21 +49,24 @@ export class CardDetails extends Component {
           onChange={this.handleChange}/>
         <Link to={`/card/${id}`} ><button onClick={this.handleSubmit}>Add Changes</button></Link>
       </form>}
-      <img src={image_url} alt={name} />
-      <h3>{name}</h3>
-      <p>Year Published: {year_published}</p>
-      <p>Min Players: {min_players}</p>
-      <p>Max Players: {max_players}</p>
-      <p>Min Playtime: {min_playtime}</p>
-      <p>Max Playtime: {max_playtime}</p>
-      { description_preview && <p>{description_preview}</p> }
-      { primary_publisher && <p>Primary Publisher: {primary_publisher}</p>}
-      { categoriesCheck &&<p>Categories:</p>}
+      <img 
+      className="details-img"
+      src={image_url} 
+      alt={name} />
+      <h3 className="card-descrip">{name}</h3>
+      <p className="card-descrip">Year Published: <span className="card-info">{year_published}</span></p>
+      <p className="card-descrip">Min Players: <span className="card-info">{min_players}</span></p>
+      <p className="card-descrip">Max Players: <span className="card-info">{max_players}</span></p>
+      <p className="card-descrip">Min Playtime: <span className="card-info">{min_playtime}</span></p>
+      <p className="card-descrip">Max Playtime: <span className="card-info">{max_playtime}</span></p>
+      {description_preview && <p className="card-descrip"><span className="card-info">{description_preview}</span></p> }
+      {primary_publisher && <p className="card-descrip">Primary Publisher: <span className="card-info">{primary_publisher}</span></p>}
+      { categoriesCheck &&<p className="card-descrip">Categories:</p>}
       <ul>
         {displayCategories}
       </ul>
-      { rules_url && <p>Rules: {rules_url}</p> }
-      { house_rules && <p>House Rules: {house_rules} </p> }
+      {rules_url && <p className="card-descrip">Rules: <span className="card-info">{rules_url}</span></p> }
+      {house_rules && <p className="card-descrip">House Rules: <span className="card-info">{house_rules}</span> </p> }
     </section>
   )
   }

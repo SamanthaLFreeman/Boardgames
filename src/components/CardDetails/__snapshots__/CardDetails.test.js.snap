@@ -2,6 +2,24 @@
 
 exports[`CardDetails should match the snapshot with the data passed through 1`] = `
 <section>
+  <form>
+    <input
+      name="house_rules"
+      onChange={[Function]}
+      placeholder="Add house rules"
+      type="text"
+      value=""
+    />
+    <Link
+      to="/card/41"
+    >
+      <button
+        onClick={[Function]}
+      >
+        Add Changes
+      </button>
+    </Link>
+  </form>
   <img />
   <h3 />
   <p>

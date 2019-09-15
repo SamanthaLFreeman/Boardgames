@@ -64,7 +64,7 @@ export class App extends Component {
   render() {
     const { currentGames, ownedGames } = this.props
     return(
-      <main>
+      <main className='app'>
         <Nav />
         <SearchForm cleanUpGames={this.cleanUpGames} />
         <Route exact path='/' render={() => <CardContainer 

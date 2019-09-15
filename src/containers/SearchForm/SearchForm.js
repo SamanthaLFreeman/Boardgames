@@ -65,13 +65,13 @@ export class SearchForm extends Component {
           value={this.state.name}
           onChange={this.handleChange} />
         <button 
-          className="search"
+          className="search search-btn"
           onClick={this.handleInputSubmit}>Submit Search</button>
         <button 
-          className="search"
+          className="search search-btn"
           onClick={this.handlePopularSubmit}>Show Popular Games</button>
         <button 
-          className="search"
+          className="search search-btn"
           onClick={this.handleRandomSubmit}>Show Random Game</button>
       </form>
     )

@@ -7,7 +7,7 @@ import CardContainer from '../CardContainer/CardContainer';
 import CardDetails from '../../components/CardDetails/CardDetails';
 import Nav from '../../components/Nav/Nav';
 import SearchForm from '../SearchForm/SearchForm';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 
 export class App extends Component {

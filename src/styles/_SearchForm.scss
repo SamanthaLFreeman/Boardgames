@@ -9,8 +9,16 @@
 }
 
 .search {
+  font-family: $font-bold;
   margin: 15px;
   padding: 10px;
+}
+
+.search-btn:hover {
+  background-color: $primary;
+  border: 1px solid $lightColor;
+  color: $lightColor;
+  cursor: pointer;
 }
 
 .search-input {

@@ -5,9 +5,25 @@
   width: 50%;
 }
 
+.back-btn {
+  cursor: pointer;
+  display: block;
+  font-family: $font-bold;
+  font-size: 0.9em;
+  height: 30px;
+  margin: auto;
+  margin-bottom: 20px;
+  text-decoration: none;
+  width: 200px;
+}
+
 .details-img {
   max-width: 200px;
   text-align: center;
+}
+
+.card-detail-name {
+  font-family: $font-bold;
 }
 
 .card-descrip {

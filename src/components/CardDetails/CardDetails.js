@@ -40,6 +40,7 @@ export class CardDetails extends Component {
   const categoriesCheck = !!categoriesIds.length;
   return (
     <section className="card-details">
+      <Link to='/' className='back-btn'><button className='back-btn'>Return to Games</button></Link>
       {checkOwned && <form className="edit-card">
         <input
           type="text"
@@ -53,7 +54,7 @@ export class CardDetails extends Component {
       className="details-img"
       src={image_url} 
       alt={name} />
-      <h3 className="card-descrip">{name}</h3>
+      <h3 className="card-descrip card-detail-name">{name}</h3>
       <p className="card-descrip">Year Published: <span className="card-info">{year_published}</span></p>
       <p className="card-descrip">Min Players: <span className="card-info">{min_players}</span></p>
       <p className="card-descrip">Max Players: <span className="card-info">{max_players}</span></p>

@@ -29,13 +29,13 @@ export class CardDetails extends Component {
   render() {
   const { id, name, year_published, min_players, max_players, min_playtime, max_playtime, description_preview, image_url, primary_publisher, categoriesIds, rules_url, categoriesKey, house_rules, ownedGames } = this.props;
   const displayCategories = categoriesIds.map(category => category.id).reduce((acc, id) => {
-    categoriesKey.forEach(key => {
-      if(id === key.id) {
-        acc.push(key.name)
-      }
-    })
-    return acc;
-  }, []).map(categoryName => <li key={categoryName} className="card-info">{categoryName}</li>);
+      categoriesKey.forEach(key => {
+        if (id === key.id) {
+          acc.push(key.name)
+        }
+      })
+      return acc;
+    }, []).map(categoryName => <li key={categoryName} className="card-info">{categoryName}</li>); 
   const checkOwned = ownedGames.map(game => game.id).includes(id)
   const categoriesCheck = !!categoriesIds.length;
   return (

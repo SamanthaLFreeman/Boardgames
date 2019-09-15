@@ -7,7 +7,7 @@ import CardContainer from '../CardContainer/CardContainer';
 import CardDetails from '../../components/CardDetails/CardDetails';
 import Nav from '../../components/Nav/Nav';
 import SearchForm from '../SearchForm/SearchForm';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 
 export class App extends Component {
@@ -66,7 +66,7 @@ export class App extends Component {
     return(
       <main className='app'>
         <Nav />
-        <SearchForm cleanUpGames={this.cleanUpGames} />
+        <Route exact path='/searchform' render={() => <SearchForm cleanUpGames={this.cleanUpGames} /> } />
         <Route exact path='/' render={() => <CardContainer 
           toggleFavorite={this.toggleFavorite}
           toggleOwned={this.toggleOwned}

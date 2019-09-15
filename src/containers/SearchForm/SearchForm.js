@@ -3,6 +3,7 @@ import { getGames } from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { searchGames, getPopularGames, randomGame } from '../../util/apiCalls';
+import { Link } from 'react-router-dom';
 
 export class SearchForm extends Component {
   constructor() {
@@ -48,15 +49,23 @@ export class SearchForm extends Component {
 
   render() {
     return (
-      <form>
+      <form className="search-form">
         <input 
+          className="search search-input"
           type="text" 
+          placeholder="Search by name"
           name="name"
           value={this.state.name}
           onChange={this.handleChange} />
-        <button onClick={this.handleInputSubmit}>Submit</button>
-        <button onClick={this.handlePopularSubmit}>Show Popular Games</button>
-        <button onClick={this.handleRandomSubmit}>Show Random Game</button>
+        <Link to='/'><button 
+          className="search"
+          onClick={this.handleInputSubmit}>Submit Search</button></Link>
+        <Link to='/'><button 
+          className="search"
+          onClick={this.handlePopularSubmit}>Show Popular Games</button></Link>
+        <Link to='/'><button 
+          className="search"
+          onClick={this.handleRandomSubmit}>Show Random Game</button></Link>
       </form>
     )
   }

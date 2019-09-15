@@ -35,4 +35,16 @@ describe('Card', () => {
   it('should match the snapshot with the data passed through', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should call the toggleFavorite on the click of favorite button', () => {
+    wrapper.find('button').at(0).simulate('click');
+
+    expect(toggleFavoriteMock).toHaveBeenCalledWith(mockGame, false);
+  });
+
+  it('should call the toggleOwned on the click of the owned button', () => {
+    wrapper.find('button').at(1).simulate('click');
+
+    expect(toggleOwnedMock).toHaveBeenCalledWith(mockGame, false)
+  })
 })

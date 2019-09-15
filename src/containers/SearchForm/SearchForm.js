@@ -3,13 +3,14 @@ import { getGames } from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { searchGames, getPopularGames, randomGame } from '../../util/apiCalls';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 export class SearchForm extends Component {
   constructor() {
     super();
     this.state = {
-      name: ""
+      name: "",
+      isPushed: false
     }
   }
 
@@ -24,8 +25,9 @@ export class SearchForm extends Component {
     searchGames(name)
       .then(data => cleanUpGames(data.games))
       .then(data => getGames(data))
+      .then(() => console.log(this.props.history.push('/favorite')))
       .catch(error => console.log(error))
-    this.setState({name: ""})
+    this.setState({name: "", isPushed: true})
   }
 
   handlePopularSubmit = (e) => {
@@ -35,6 +37,7 @@ export class SearchForm extends Component {
       .then(data => cleanUpGames(data.games))
       .then(data => getGames(data))
       .catch(error => console.log(error))
+    this.setState({ isPushed: true })
   }
 
   handleRandomSubmit = (e) => {
@@ -44,10 +47,14 @@ export class SearchForm extends Component {
       .then(data => cleanUpGames([data.game]))
       .then(data => getGames(data))
       .catch(error => console.log(error))
+    this.setState({ isPushed: true })
   }
   
 
   render() {
+    if(this.state.isPushed) {
+      return <Redirect to='/' />
+    }
     return (
       <form className="search-form">
         <input 
@@ -57,15 +64,15 @@ export class SearchForm extends Component {
           name="name"
           value={this.state.name}
           onChange={this.handleChange} />
-        <Link to='/'><button 
+        <button 
           className="search"
-          onClick={this.handleInputSubmit}>Submit Search</button></Link>
-        <Link to='/'><button 
+          onClick={this.handleInputSubmit}>Submit Search</button>
+        <button 
           className="search"
-          onClick={this.handlePopularSubmit}>Show Popular Games</button></Link>
-        <Link to='/'><button 
+          onClick={this.handlePopularSubmit}>Show Popular Games</button>
+        <button 
           className="search"
-          onClick={this.handleRandomSubmit}>Show Random Game</button></Link>
+          onClick={this.handleRandomSubmit}>Show Random Game</button>
       </form>
     )
   }

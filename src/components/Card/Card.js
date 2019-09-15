@@ -12,7 +12,7 @@ export const Card = ({game, toggleFavorite, toggleOwned, ownedGames, favorites})
       <button className={btnFavClass} onClick={() => toggleFavorite(game, isFavorite)}>Fav</button>
       <button className={btnOwnClass} onClick={() => toggleOwned(game, isOwned)}>Own</button>
       <img className="card-img" src={game.image_url} alt={game.name} />
-      <h2>{game.name}</h2>
+      <h2 className="card-name">{game.name}</h2>
       <Link to={`/card/${game.id}`} ><button>Details</button></Link>
     </article>
   )

@@ -17,8 +17,45 @@
   width: 200px;
 }
 
+.back-btn:hover {
+  background-color: $primary;
+  border: 1px solid $lightColor;
+  color: $lightColor;
+}
+
+.edit-card {
+  background-color: $primary;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 200px;
+}
+
+.edit-input {
+  font-family: $font-bold;
+  height: 30px;
+  margin: 10px 0;
+  text-align: center;
+  width: 200px;
+}
+
+.edit-btn {
+  cursor: pointer;
+  font-family: $font-bold;
+  height: 30px;
+  margin: 10px 0;
+  width: 200px;
+}
+
+.edit-btn:hover {
+  background-color: $primary;
+  border: 1px solid $lightColor;
+  color: $lightColor;
+}
+
 .details-img {
-  max-width: 200px;
+  max-width: 300px;
+  margin: 20px 0;
   text-align: center;
 }
 

@@ -2,6 +2,9 @@
   background-color: $secondary;
   border: 1px solid #fff;
   box-shadow: 5px 5px #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 20px;
   min-height: 300px;
   padding: 10px;
@@ -41,10 +44,11 @@
 }
 
 .btn-fav-active {
+  border: 1px solid $primary;
   cursor: pointer;
   width: 50px;
   height: 50px;
-  background-color: red;
+  background-color: #c5aed2;
   border-radius: 50%;
   font-family: $font-bold;
   z-index: 1;
@@ -68,7 +72,8 @@
 }
 
 .btn-own-active {
-  background: blue;
+  background: #bfdcdb;
+  border: 1px solid $primary;
   cursor: pointer;
   height: 45px;
   font-family: $font-bold;

@@ -1,10 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App should match the snapshot with the data passed through 1`] = `
-<main>
+<main
+  className="app"
+>
   <Nav />
-  <Connect(SearchForm)
-    cleanUpGames={[Function]}
+  <Route
+    exact={true}
+    path="/searchform"
+    render={[Function]}
   />
   <Route
     exact={true}

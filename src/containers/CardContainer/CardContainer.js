@@ -19,7 +19,7 @@ export const CardContainer = ({games, toggleFavorite, toggleOwned, type, ownedGa
   )
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   games: state.games,
   favorites: state.favorites,
   ownedGames: state.ownedGames

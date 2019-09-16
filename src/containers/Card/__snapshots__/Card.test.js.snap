@@ -4,31 +4,43 @@ exports[`Card should match the snapshot with the data passed through 1`] = `
 <article
   className="card"
 >
-  <button
-    className="btn-fav"
-    onClick={[Function]}
+  <div
+    className="card-btns"
   >
-    Fav
-  </button>
-  <button
-    className="btn-own"
-    onClick={[Function]}
-  >
-    Own
-  </button>
+    <button
+      className="btn-fav"
+      onClick={[Function]}
+    >
+      Fav
+    </button>
+    <button
+      className="btn-own"
+      onClick={[Function]}
+    >
+      Own
+    </button>
+  </div>
   <img
     alt="Catan"
     className="card-img"
   />
-  <h2>
-    Catan
-  </h2>
-  <Link
-    to="/card/42"
+  <div
+    className="bottom-card"
   >
-    <button>
-      Details
-    </button>
-  </Link>
+    <h2
+      className="card-name"
+    >
+      Catan
+    </h2>
+    <Link
+      to="/card/42"
+    >
+      <button
+        className="details-btn"
+      >
+        Details
+      </button>
+    </Link>
+  </div>
 </article>
 `;

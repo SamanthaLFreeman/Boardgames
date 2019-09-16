@@ -9,13 +9,15 @@ export const Card = ({game, toggleFavorite, toggleOwned, ownedGames, favorites})
   const btnOwnClass = isOwned ? "btn-own-active" : "btn-own";
   return (
     <article className="card">
-      <div className="card-btns">
-        <button className={btnFavClass} onClick={() => toggleFavorite(game, isFavorite)}>Fav</button>
-        <button className={btnOwnClass} onClick={() => toggleOwned(game, isOwned)}>Own</button>
-      </div>
-      <img className="card-img" src={game.image_url} alt={game.name} />
-      <div className="bottom-card">
+      <div className="card-top">
+        <div className="card-btns">
+          <button className={btnFavClass} onClick={() => toggleFavorite(game, isFavorite)}>Fav</button>
+          <button className={btnOwnClass} onClick={() => toggleOwned(game, isOwned)}>Own</button>
+        </div>
+        <img className="card-img" src={game.image_url} alt={game.name} />
         <h2 className="card-name">{game.name}</h2>
+      </div>
+      <div className="bottom-card">
         <Link to={`/card/${game.id}`} ><button className="details-btn">Details</button></Link>
       </div>
     </article>

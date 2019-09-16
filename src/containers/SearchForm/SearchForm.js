@@ -3,7 +3,7 @@ import { getGames } from '../../actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { searchGames, getPopularGames, randomGame } from '../../util/apiCalls';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 export class SearchForm extends Component {
   constructor() {

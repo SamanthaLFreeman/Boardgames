@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Card from '../../containers/Card/Card'
 
 export const CardContainer = ({games, toggleFavorite, toggleOwned, type, ownedGames, favorites}) => {

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getPopularGames, getAllCategories } from '../../util/apiCalls';
 import CardContainer from '../CardContainer/CardContainer';
-import CardDetails from '../../components/CardDetails/CardDetails';
+import CardDetails from '../CardDetails/CardDetails';
 import Nav from '../../components/Nav/Nav';
 import SearchForm from '../SearchForm/SearchForm';
 import { Route } from 'react-router-dom';

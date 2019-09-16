@@ -50,12 +50,11 @@
   z-index: 1;
 }
 
-.btn-fav:hover {
-  background-color: black;
-}
-
+.btn-fav:hover,
 .btn-fav-active:hover {
-  background-color: black;
+  background-color: $primary;
+  border: 1px solid $lightColor;
+  color: $lightColor;
 }
 
 .btn-own {
@@ -77,12 +76,11 @@
   z-index: 1;
 }
 
-.btn-own:hover {
-  background-color: black;
-}
-
+.btn-own:hover,
 .btn-own-active:hover {
-  background-color: black;
+  background-color: $primary;
+  border: 1px solid $lightColor;
+  color: $lightColor;
 }
 
 .bottom-card {
@@ -92,8 +90,12 @@
 }
 
 .details-btn {
-  background-color: $secondary;
+  background-color: $primary;
   color: $lightColor;
   cursor: pointer;
   padding: 10px;
+}
+
+.details-btn:hover {
+  border: 1px solid $lightColor;
 }

@@ -177,4 +177,29 @@ describe('App', () => {
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
+
+  it('should call addFavorite when toggleFavorite is given a false value', async () => {
+    wrapper.instance().toggleFavorite(mockGames, false);
+    expect(addFavoriteMock).toHaveBeenCalled();
+  });
+
+  it('should call removeFavorite when toggleFavorite is given a false value', async () => {
+    wrapper.instance().toggleFavorite(mockGames, true);
+    expect(removeFavoriteMock).toHaveBeenCalled();
+  });
+
+  it('should call addOwned when toggleOwned is given a false value', async () => {
+    wrapper.instance().toggleOwned(mockGames, false);
+    expect(addOwnedMock).toHaveBeenCalled();
+  });
+
+  it('should call removeOwned when toggleOwned is given a false value', async () => {
+    wrapper.instance().toggleOwned(mockGames, true);
+    expect(removeOwnedMock).toHaveBeenCalled();
+  });
+
+  it('should call getPopularGames and getAllCategories when mounting', () => {
+    expect(getPopularGames).toHaveBeenCalled();
+    expect(getAllCategories).toHaveBeenCalled();
+  });
 });

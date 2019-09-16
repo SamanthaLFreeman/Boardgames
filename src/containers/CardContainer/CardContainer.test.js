@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CardContainer } from './CardContainer';
+import { CardContainer, mapStateToProps } from './CardContainer';
 
 describe('CardContainer', () => {
   let wrapper;
@@ -24,6 +24,12 @@ describe('CardContainer', () => {
   ]
   const toggleFavoriteMock = jest.fn();
   const toggleOwnedMock = jest.fn();
+  const mockState = {
+    games: mockGames,
+    categories: [{ id: 1, name: 'Zombies' }],
+    ownedGames: mockOwned,
+    favorites: mockFavorites
+  }
 
   beforeEach(() => {
     wrapper = shallow(<CardContainer 
@@ -59,5 +65,17 @@ describe('CardContainer', () => {
       toggleOwned={toggleOwnedMock}
       type='ownedGames' />)
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('mapStateToProps should grab the props it needs', () => {
+    const expected = {
+      games: mockGames,
+      favorites: mockFavorites,
+      ownedGames: mockOwned
+    }
+
+    const mappedProps = mapStateToProps(mockState);
+
+    expect(mappedProps).toEqual(expected);
   });
 });

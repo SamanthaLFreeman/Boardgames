@@ -44,11 +44,14 @@ export class CardDetails extends Component {
       {checkOwned && <form className="edit-card">
         <input
           type="text"
+          className="edit-input"
           placeholder="Add house rules"
           name="house_rules"
           value={this.state.house_rules}
           onChange={this.handleChange}/>
-        <Link to={`/card/${id}`} ><button onClick={this.handleSubmit}>Add Changes</button></Link>
+        <Link to={`/card/${id}`} ><button
+        className="edit-btn" 
+        onClick={this.handleSubmit}>Add Changes</button></Link>
       </form>}
       { image_url && <img 
       className="details-img"

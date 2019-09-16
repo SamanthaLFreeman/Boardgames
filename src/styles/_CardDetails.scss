@@ -17,8 +17,30 @@
   width: 200px;
 }
 
+.edit-card {
+  background-color: $primary;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 200px;
+}
+
+.edit-input {
+  height: 30px;
+  margin: 10px 0;
+  text-align: center;
+  width: 200px;
+}
+
+.edit-btn {
+  height: 30px;
+  margin: 10px 0;
+  width: 200px;
+}
+
 .details-img {
   max-width: 200px;
+  margin-top: 10px;
   text-align: center;
 }
 

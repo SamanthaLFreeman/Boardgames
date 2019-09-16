@@ -54,7 +54,7 @@ describe('CardDetails', () => {
     wrapper.instance().handleSubmit = jest.fn();
     const mockEvent = { preventDefault: jest.fn() };
     wrapper.instance().forceUpdate();
-    wrapper.find('button').simulate('click', mockEvent);
+    wrapper.find('button').at(1).simulate('click', mockEvent);
 
     expect(wrapper.instance().handleSubmit).toHaveBeenCalled();
   });

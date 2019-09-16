@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CardDetails } from './CardDetails';
+import { CardDetails, mapStateToProps, mapDispatchToProps } from './CardDetails';
+import { updateGame } from '../../actions';
 
 describe('CardDetails', () => {
   let wrapper;
@@ -25,6 +26,12 @@ describe('CardDetails', () => {
       id: 41
     }
   ]
+  const mockState = {
+    games: [mockCard],
+    categories: categoriesKeyMock,
+    ownedGames: ownedGamesMock,
+    favorites: [mockCard]
+  }
   const updateGameMock = jest.fn();
 
   beforeEach(() => {
@@ -57,5 +64,30 @@ describe('CardDetails', () => {
     wrapper.find('button').at(1).simulate('click', mockEvent);
 
     expect(wrapper.instance().handleSubmit).toHaveBeenCalled();
+  });
+
+  it('mapStateToProps should grab the props it needs', () => {
+    const expected = {
+      categoriesKey: categoriesKeyMock,
+      ownedGames: ownedGamesMock
+    }
+
+    const mappedProps = mapStateToProps(mockState);
+
+    expect(mappedProps).toEqual(expected);
+  });
+
+  it('it calls dispatch with the updateGame action', () => {
+    const updatedGameMock = {
+      name: 'Takenoko',
+      id: 42,
+      house_rules: 'Name the Panda'
+    }
+    const mockDispatch = jest.fn();
+    const actionToDispatch = updateGame(updatedGameMock);
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.updateGame(updatedGameMock);
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 })

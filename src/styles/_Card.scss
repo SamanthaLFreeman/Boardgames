@@ -33,24 +33,26 @@
 }
 
 .btn-fav {
-  border: 1px solid $primary;
+  background-image: url("../images/fav.png");
   cursor: pointer;
-  width: 50px;
-  height: 50px;
-  background: #ced2d2;
-  border-radius: 50%;
   font-family: $font-bold;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+  background-color: transparent;
+  background-size: contain;
   z-index: 1;
 }
 
 .btn-fav-active {
-  border: 1px solid $primary;
+  background-image: url("../images/fav-active.png");
   cursor: pointer;
-  width: 50px;
-  height: 50px;
-  background-color: #c5aed2;
-  border-radius: 50%;
   font-family: $font-bold;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+  background-color: transparent;
+  background-size: contain;
   z-index: 1;
 }
 
@@ -58,26 +60,31 @@
 .btn-fav-active:hover {
   background-color: $primary;
   border: 1px solid $lightColor;
+  border-radius: 30px;
   color: $lightColor;
 }
 
 .btn-own {
-  background: #ced2d2;
-  border: 1px solid $primary;
+  background-image: url("../images/own.png");
   cursor: pointer;
-  height: 45px;
   font-family: $font-bold;
-  width: 45px;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+  background-color: transparent;
+  background-size: contain;
   z-index: 1;
 }
 
 .btn-own-active {
-  background: #bfdcdb;
-  border: 1px solid $primary;
+  background-image: url("../images/own-active.png");
   cursor: pointer;
-  height: 45px;
   font-family: $font-bold;
-  width: 45px;
+  background-repeat: no-repeat;
+  height: 60px;
+  width: 60px;
+  background-color: transparent;
+  background-size: contain;
   z-index: 1;
 }
 
@@ -85,6 +92,7 @@
 .btn-own-active:hover {
   background-color: $primary;
   border: 1px solid $lightColor;
+  border-radius: 30px;
   color: $lightColor;
 }
 

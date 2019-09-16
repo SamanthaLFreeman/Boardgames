@@ -1,11 +1,24 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { SearchForm } from '../SearchForm/SearchForm';
+import { SearchForm, mapDispatchToProps } from '../SearchForm/SearchForm';
+import { getGames } from '../../actions';
 
 describe('SearchForm', () => {
   let wrapper
   const cleanUpGamesMock = jest.fn();
   const getGamesMock = jest.fn();
+  const mockSearchGames = [{
+    name: 'Catan',
+    id: 42
+  }]
+  const mockPopularGames = [{
+    name: 'Dead of Winter',
+    id: 43
+  }]
+  const mockRandomGame = {
+    name: 'Ticket to Ride',
+    id: 44
+  }
 
   beforeEach(() => {
     wrapper = shallow(<SearchForm   
@@ -51,5 +64,32 @@ describe('SearchForm', () => {
     wrapper.find('button').at(2).simulate('click', mockEvent);
 
     expect(wrapper.instance().handleRandomSubmit).toHaveBeenCalled();
+  });
+
+  it('it calls dispatch with the getGames action with the searchedGames data', () => {
+    const mockDispatch = jest.fn();
+    const actionToDispatch = getGames(mockSearchGames);
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.getGames(mockSearchGames);
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+
+  it('it calls dispatch with the getGames action with the getPopularGames data', () => {
+    const mockDispatch = jest.fn();
+    const actionToDispatch = getGames(mockPopularGames);
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.getGames(mockPopularGames);
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+
+  it('it calls dispatch with the getGames action with the randomGame data', () => {
+    const mockDispatch = jest.fn();
+    const actionToDispatch = getGames(mockRandomGame);
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    mappedProps.getGames(mockRandomGame);
+
+    expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 })

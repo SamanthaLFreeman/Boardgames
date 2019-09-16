@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Card } from './Card';
+import { Card, mapStateToProps } from './Card';
 
 describe('Card', () => {
   let wrapper;
@@ -22,6 +22,12 @@ describe('Card', () => {
       id: 43
     }
   ]
+  const mockState = {
+    games: [mockGame],
+    categories: [{id: 1, name: 'Zombies'}],
+    ownedGames: ownedGamesMock,
+    favorites: favoritesMock
+  }
 
   beforeEach(() => {
     wrapper = shallow(<Card
@@ -46,5 +52,16 @@ describe('Card', () => {
     wrapper.find('button').at(1).simulate('click');
 
     expect(toggleOwnedMock).toHaveBeenCalledWith(mockGame, false)
-  })
+  });
+
+  it('mapStateToProps should grab the props it needs', () => {
+    const expected = {
+      favorites: favoritesMock,
+      ownedGames: ownedGamesMock
+    }
+
+    const mappedProps = mapStateToProps(mockState);
+
+    expect(mappedProps).toEqual(expected);
+  });
 })

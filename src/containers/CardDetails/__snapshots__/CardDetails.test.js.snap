@@ -1,9 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CardDetails should match the snapshot with the data passed through 1`] = `
-<section>
-  <form>
+<section
+  className="card-details"
+>
+  <Link
+    className="back-btn"
+    to="/"
+  >
+    <button
+      className="back-btn"
+    >
+      Return to Games
+    </button>
+  </Link>
+  <form
+    className="edit-card"
+  >
     <input
+      className="edit-input"
       name="house_rules"
       onChange={[Function]}
       placeholder="Add house rules"
@@ -14,34 +29,21 @@ exports[`CardDetails should match the snapshot with the data passed through 1`] 
       to="/card/41"
     >
       <button
+        className="edit-btn"
         onClick={[Function]}
       >
         Add Changes
       </button>
     </Link>
   </form>
-  <img />
-  <h3 />
-  <p>
-    Year Published: 
-  </p>
-  <p>
-    Min Players: 
-  </p>
-  <p>
-    Max Players: 
-  </p>
-  <p>
-    Min Playtime: 
-  </p>
-  <p>
-    Max Playtime: 
-  </p>
-  <p>
+  <p
+    className="card-descrip"
+  >
     Categories:
   </p>
   <ul>
     <li
+      className="card-info"
       key="Fantasy"
     >
       Fantasy

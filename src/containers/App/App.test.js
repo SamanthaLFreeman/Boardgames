@@ -135,45 +135,45 @@ describe('App', () => {
 
   it('it calls dispatch with the getCategories action', () => {
     const mockDispatch = jest.fn();
-    const actionToDispatch = getCategories([mockGames]);
+    const actionToDispatch = getCategories(mockCategories);
     const mappedProps = mapDispatchToProps(mockDispatch);
-    mappedProps.getCategories([mockGames]);
+    mappedProps.getCategories(mockCategories);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 
   it('it calls dispatch with the addFavorite action', () => {
     const mockDispatch = jest.fn();
-    const actionToDispatch = addFavorite([mockGames]);
+    const actionToDispatch = addFavorite(mockGames);
     const mappedProps = mapDispatchToProps(mockDispatch);
-    mappedProps.addFavorite([mockGames]);
+    mappedProps.addFavorite(mockGames);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 
   it('it calls dispatch with the removeFavorite action', () => {
     const mockDispatch = jest.fn();
-    const actionToDispatch = removeFavorite([mockGames]);
+    const actionToDispatch = removeFavorite(mockGames);
     const mappedProps = mapDispatchToProps(mockDispatch);
-    mappedProps.removeFavorite([mockGames]);
+    mappedProps.removeFavorite(mockGames);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 
   it('it calls dispatch with the addOwned action', () => {
     const mockDispatch = jest.fn();
-    const actionToDispatch = addOwned([mockGames]);
+    const actionToDispatch = addOwned(mockGames);
     const mappedProps = mapDispatchToProps(mockDispatch);
-    mappedProps.addOwned([mockGames]);
+    mappedProps.addOwned(mockGames);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });
 
   it('it calls dispatch with the removeOwned action', () => {
     const mockDispatch = jest.fn();
-    const actionToDispatch = removeOwned([mockGames]);
+    const actionToDispatch = removeOwned(mockGames);
     const mappedProps = mapDispatchToProps(mockDispatch);
-    mappedProps.removeOwned([mockGames]);
+    mappedProps.removeOwned(mockGames);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
   });

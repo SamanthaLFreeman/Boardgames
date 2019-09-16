@@ -2,6 +2,60 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { SearchForm, mapDispatchToProps } from '../SearchForm/SearchForm';
 import { getGames } from '../../actions';
+import { getPopularGames, searchGames, randomGame } from '../../util/apiCalls';
+
+jest.mock('../../util/apiCalls');
+
+getPopularGames.mockImplementation(() => {
+  return Promise.resolve({
+    id: 42,
+    name: "Catan",
+    year_published: 1999,
+    min_players: 2,
+    max_players: 6,
+    min_playtime: 30,
+    max_playtime: 60,
+    description_preview: "Gotta get all the sheep",
+    image_url: "image",
+    primary_publisher: "me",
+    categories: [{ id: "1234" }],
+    rules_url: "rules link"
+  })
+});
+
+searchGames.mockImplementation(() => {
+  return Promise.resolve({
+    id: 42,
+    name: "Catan",
+    year_published: 1999,
+    min_players: 2,
+    max_players: 6,
+    min_playtime: 30,
+    max_playtime: 60,
+    description_preview: "Gotta get all the sheep",
+    image_url: "image",
+    primary_publisher: "me",
+    categories: [{ id: "1234" }],
+    rules_url: "rules link"
+  })
+});
+
+randomGame.mockImplementation(() => {
+  return Promise.resolve({
+    id: 42,
+    name: "Catan",
+    year_published: 1999,
+    min_players: 2,
+    max_players: 6,
+    min_playtime: 30,
+    max_playtime: 60,
+    description_preview: "Gotta get all the sheep",
+    image_url: "image",
+    primary_publisher: "me",
+    categories: [{ id: "1234" }],
+    rules_url: "rules link"
+  })
+});
 
 describe('SearchForm', () => {
   let wrapper
@@ -91,5 +145,23 @@ describe('SearchForm', () => {
     mappedProps.getGames(mockRandomGame);
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+  });
+
+  it('should call searchGames when handleInputSubmit is called', async () => {
+    const mockEvent = { preventDefault: jest.fn() }
+    wrapper.instance().handleInputSubmit(mockEvent);
+    expect(searchGames).toHaveBeenCalled();
+  });
+
+  it('should call getPopularGames when handlePopularSubmit is called', async () => {
+    const mockEvent = { preventDefault: jest.fn() }
+    wrapper.instance().handlePopularSubmit(mockEvent);
+    expect(getPopularGames).toHaveBeenCalled();
+  });
+
+  it('should call randomGame when handleRandomSubmit is called', async () => {
+    const mockEvent = { preventDefault: jest.fn() }
+    wrapper.instance().handleRandomSubmit(mockEvent);
+    expect(randomGame).toHaveBeenCalled();
   });
 })

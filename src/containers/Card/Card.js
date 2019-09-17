@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { GiCrossedSwords } from 'react-icons/gi';
+
 
 export const Card = ({game, toggleFavorite, toggleOwned, ownedGames, favorites}) => {
   const isFavorite = favorites.map(favorite => favorite.id).includes(game.id);
@@ -18,7 +20,7 @@ export const Card = ({game, toggleFavorite, toggleOwned, ownedGames, favorites})
         <h2 className="card-name">{game.name}</h2>
       </div>
       <div className="bottom-card">
-        <Link to={`/card/${game.id}`} ><button className="details-btn">DETAILS</button></Link>
+        <Link to={`/card/${game.id}`} ><button className="details-btn"><GiCrossedSwords /> DETAILS</button></Link>
       </div>
     </article>
   )

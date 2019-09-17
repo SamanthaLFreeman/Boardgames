@@ -104,9 +104,12 @@
 
 .details-btn {
   background-color: $primary;
+  border: 1px solid transparent;
+  border-radius: 3px;
   color: $lightColor;
   cursor: pointer;
-  padding: 10px;
+  font-weight: bold;
+  padding: 6px;
 }
 
 .details-btn:hover {

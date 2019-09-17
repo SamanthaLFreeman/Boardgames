@@ -81,6 +81,9 @@ export class App extends Component {
           type={'ownedGames'} />} />
         
         <Route path='/card/:id' render={({ match }) => {
+          if (currentGames.length === 0) {
+            return <Redirect to='/' />
+          }
           let targetCard = ownedGames.find(card => card.id === match.params.id);
           if(!targetCard) {
             targetCard = currentGames.find(card => card.id === match.params.id);

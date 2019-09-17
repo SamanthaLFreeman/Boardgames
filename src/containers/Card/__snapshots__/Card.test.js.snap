@@ -5,40 +5,41 @@ exports[`Card should match the snapshot with the data passed through 1`] = `
   className="card"
 >
   <div
-    className="card-btns"
+    className="card-top"
   >
-    <button
-      className="btn-fav"
-      onClick={[Function]}
+    <div
+      className="card-btns"
     >
-      Fav
-    </button>
-    <button
-      className="btn-own"
-      onClick={[Function]}
-    >
-      Own
-    </button>
-  </div>
-  <img
-    alt="Catan"
-    className="card-img"
-  />
-  <div
-    className="bottom-card"
-  >
+      <button
+        className="btn-fav"
+        onClick={[Function]}
+      />
+      <button
+        className="btn-own"
+        onClick={[Function]}
+      />
+    </div>
+    <img
+      alt="Catan"
+      className="card-img"
+    />
     <h2
       className="card-name"
     >
       Catan
     </h2>
+  </div>
+  <div
+    className="bottom-card"
+  >
     <Link
       to="/card/42"
     >
       <button
         className="details-btn"
       >
-        Details
+        <GiCrossedSwords />
+         DETAILS
       </button>
     </Link>
   </div>

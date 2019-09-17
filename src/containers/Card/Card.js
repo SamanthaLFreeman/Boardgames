@@ -18,7 +18,7 @@ export const Card = ({game, toggleFavorite, toggleOwned, ownedGames, favorites})
         <h2 className="card-name">{game.name}</h2>
       </div>
       <div className="bottom-card">
-        <Link to={`/card/${game.id}`} ><button className="details-btn">Details</button></Link>
+        <Link to={`/card/${game.id}`} ><button className="details-btn">DETAILS</button></Link>
       </div>
     </article>
   )

@@ -70,7 +70,7 @@ export class CardDetails extends Component {
         {displayCategories}
       </ul>
       {rules_url && <p className="card-descrip">Rules: <span className="card-info">{rules_url}</span></p> }
-      {house_rules && <p className="card-descrip">House Rules: <span className="card-info">{house_rules}</span> </p> }
+      { house_rules && <a className="card-info" href={house_rules}>Link to Rules</a> }
     </section>
   )
   }

@@ -7,7 +7,7 @@ import CardContainer from '../CardContainer/CardContainer';
 import CardDetails from '../CardDetails/CardDetails';
 import Nav from '../../components/Nav/Nav';
 import SearchForm from '../SearchForm/SearchForm';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 
 export class App extends Component {
@@ -79,7 +79,11 @@ export class App extends Component {
           toggleFavorite={this.toggleFavorite}
           toggleOwned={this.toggleOwned}
           type={'ownedGames'} />} />
+        
         <Route path='/card/:id' render={({ match }) => {
+          if (currentGames.length === 0) {
+            return <Redirect to='/' />
+          }
           let targetCard = ownedGames.find(card => card.id === match.params.id);
           if(!targetCard) {
             targetCard = currentGames.find(card => card.id === match.params.id);
